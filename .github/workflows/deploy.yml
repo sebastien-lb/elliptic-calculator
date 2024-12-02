@@ -1,5 +1,7 @@
 name: deploy-ci
 
+# Based on : https://github.com/sitek94/vite-deploy-demo
+
 on:
   # Triggers the workflow on push or pull request events but only for the "master" branch
   push:
