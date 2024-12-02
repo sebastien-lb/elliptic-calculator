@@ -1,50 +1,22 @@
-# React + TypeScript + Vite
+# Elliptic Curve Calculator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The idea of this project is to create a visualization of Elliptic and Hyperelliptic Curves in Finite Fields.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Elliptic Curve
 
-## Expanding the ESLint configuration
+The elliptic curve based on the equation y^2 = x^3 + ax + b is drawn using plotly-js.  
+I want to explore the ring of isogenies over an Elliptic Curve when the number of points N is prime. 
+With characteristic p, if 3 | p-1 then there are 3 roots of the equation x^3 = 1 in F_p.  
+Hence there are a isogenies phi: (x, y) -> (rx,y) with r^3 = 1. 
+We can say that (x,y) ; (rx,y) and (r^2 * x, y) are on the same isogeny ring. (Name to change)
+phi will be equal to an isogeny of the form [n]E where n satisfy n^3 = 1 [N].  
+Theses points are easily recognizable between each other. Can we have patterns which allow easy recognition for other rings ?  
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+The basic setup with p = 43, a = 0 and b = 7 highlight this phenomena. 
 
-- Configure the top-level `parserOptions` property like this:
+### TODO 
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- Finite fields extension
+- Exploration on pattern recognition (polynomes ?)
+- Hyperelliptic Curves and divisor selection for operation
